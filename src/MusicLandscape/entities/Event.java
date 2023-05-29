@@ -6,19 +6,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Event {
-    private String name;
+    //Attributes
+    private Artist artist;
+    private int attendees;
     private Date date;
+    private String description;
     private Venue venue;
-    private List<Artist> acts;
 
-    public String getName() {
-        return name;
+                //constructors
+                public Event(){
+                    this.artist = new Artist();
+                    this.attendees = 0;
+                    this.description = "";
+                }
+
+    //getters and setters
+
+
+    public Artist getArtist() {
+        return artist;
     }
 
-    public void setName(String name) {
-        if (name != null && !name.equals("") && !name.trim().equals("")) {
-            this.name = name;
-        }
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
+
+    public int getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(int attendees) {
+        this.attendees = attendees;
     }
 
     public Date getDate() {
@@ -26,9 +44,15 @@ public class Event {
     }
 
     public void setDate(Date date) {
-        if (date != null) {
-            this.date = date;
-        }
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Venue getVenue() {
@@ -36,90 +60,9 @@ public class Event {
     }
 
     public void setVenue(Venue venue) {
-        if (venue != null) {
-            this.venue = venue;
-        }
+        this.venue = venue;
     }
 
-    public List<Artist> getActs() {
-        return acts;
-    }
 
-    public void setActs(List<Artist> acts) {
-        if (acts != null) {
-            this.acts = acts;
-        }
-    }
-
-    public void addAct(Artist act) {
-        if (act != null) {
-            if (acts == null) {
-                acts = new ArrayList<>();
-            }
-            acts.add(act);
-        }
-    }
-
-    public void removeAct(Artist act) {
-        if (act != null && acts != null) {
-            acts.remove(act);
-        }
-    }
-
-    public int numberOfActs() {
-        if (acts != null) {
-            return acts.size();
-        } else {
-            return 0;
-        }
-    }
-
-    public int indexOfAct(Artist act) {
-        if (act != null && acts != null) {
-            return acts.indexOf(act);
-        } else {
-            return -1;
-        }
-    }
-
-    public Artist getActAt(int index) {
-        if (index >= 0 && acts != null && index < acts.size()) {
-            return acts.get(index);
-        } else {
-            return null;
-        }
-    }
-
-    public Artist getAct(String name) {
-        if (name != null && acts != null) {
-            for (Artist act : acts) {
-                if (act.getName().equals(name)) {
-                    return act;
-                }
-            }
-        }
-        return null;
-    }
-
-    public int totalTime() {
-        int totalTime = 0;
-        if (acts != null) {
-            for (Artist act : acts) {
-                totalTime += act.totalTime();
-            }
-        }
-        return totalTime;
-    }
-
-    public int totalTime(String name) {
-        int totalTime = 0;
-        if (name != null && acts != null) {
-            for (Artist act : acts) {
-                if (act.getName().equals(name)) {
-                    totalTime += act.totalTime();
-                }
-            }
-        }
-    }
 
 }

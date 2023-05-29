@@ -4,6 +4,24 @@ public class Artist {
     // The name of the Artist
     private String name;
 
+                //constructors
+                //standard constructor
+
+                public Artist(){
+                    this.name = "unknown";
+                }
+                //copy constructor
+                public Artist(Artist a){
+                    this.name = a.name;
+                }
+                //specific constructor
+                public Artist(String name){
+                    this.name = name;
+                }
+
+
+
+
     ///Method which returns the Artists Name
     public String getName(){
     return name;
@@ -24,10 +42,6 @@ public class Artist {
 
     }
 
-    //CONSTRUCTOR
-    public Artist(){
-this.name = null;
-    }
 
 
 }

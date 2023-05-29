@@ -9,6 +9,35 @@ public class Track {
     private Artist performer;
     private int year;
 
+
+    //CONSTRUCTOR
+    //default constructor
+    public Track(){
+        this.performer = new Artist();
+        this.writer = new Artist();
+        performer.setName("unknown");
+        writer.setName("unknown");
+        this.title = null;
+        this.year = 1900;
+        this.duration = 0;
+    }
+    //specific constructor
+    public Track(String title){
+this();
+        this.title = title;
+    }
+    ///copy constructor
+    public Track(Track t){
+        this.title = t.title;
+        this.duration = t.duration;
+        this.writer = new Artist(t.writer);
+        this.performer = new Artist(t.performer);
+        this.year = t.year;
+    }
+
+
+
+
 //region Getters and Setters
     //DONE
     public String getTitle() {
@@ -136,15 +165,6 @@ if(performer != null && performer.getName() != null){
     }
 
 
-    //CONSTRUCTOR
-    public Track(){
-this.performer = new Artist();
-this.writer = new Artist();
-performer.setName(null);
-writer.setName(null);
-this.title = null;
-this.year = 0;
-this.duration = 0;
-    }
+
 
 }
