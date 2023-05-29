@@ -31,10 +31,10 @@ public class Artist {
     public void setName(String name){
 
 
-       if(name != null   &&  !name.equals("") && !name.trim().equals("")  ){
-            if (this.name == null) {
+       if(name != null  && !name.trim().equals("")  ){
+         //   if (this.name == null) { //skipped because it seems to be useless in this test
                 this.name = name;
-            }
+          //  }
 
 
 

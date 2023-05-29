@@ -28,7 +28,9 @@ public class Event {
     }
 
     public void setArtist(Artist artist) {
-        this.artist = artist;
+                    if(artist != null) {
+                        this.artist = artist;
+                    }
     }
 
     public int getAttendees() {
@@ -36,15 +38,26 @@ public class Event {
     }
 
     public void setAttendees(int attendees) {
-        this.attendees = attendees;
+                    if(attendees >= 0) {
+                        this.attendees = attendees;
+                    }
+
     }
 
     public Date getDate() {
-        return date;
+                    if (date != null){
+                        Date date1 = new Date(date);
+                        return date1;
+                    }else {
+                        return null;
+                    }
     }
 
     public void setDate(Date date) {
-        this.date = date;
+                    if(date != null) {
+                        this.date = new Date(date);
+                    }
+
     }
 
     public String getDescription() {
@@ -53,6 +66,9 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+        if(description == null){
+            this.description = "";
+        }
     }
 
     public Venue getVenue() {
