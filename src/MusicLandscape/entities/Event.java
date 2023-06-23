@@ -1,9 +1,7 @@
 package MusicLandscape.entities;
 
-import MusicLandscape.Venue;
 import MusicLandscape.Date;
-import java.util.ArrayList;
-import java.util.List;
+import MusicLandscape.Venue;
 
 public class Event {
     //Attributes

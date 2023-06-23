@@ -1,32 +1,102 @@
+// **************************************************
+//		
+//       git.rev = 234
+//  git.revision = fdd4980be270473bdd7e8206afeda65ab6e4c3a4
+//         stage = ES03
+//
+// ***************************************************
 package MusicLandscape;
 
+/**
+ * 
+ * @author TeM
+ * @version 234
+ * @Stage ES03
+ * @ProgrammingProblem.Category simple entity classes
+ * @ProgrammingProblem.Introduced ExerciseSheet02 (provided)
+ */
 public class Venue {
-    private int capacity;
-    private String name;
+	/**
+	 * 
+	 * the name of this venue
+	 */
+	private String name;
+	/**
+	 * the capacity of this venue
+	 * 
+	 * the capacity is the (non-negative) maximum number of attendees allowed
+	 * for this venue.
+	 * 
+	 */
+	private int capacity;
 
-                            ///constructor
-                            public Venue(String name, int capacity){
-                                this.name = "unknown";
-                                this.capacity = 0;
-                            }
+	/**
+	 * get the capacity of this venue
+	 * 
+	 * @return the capacity
+	 * 
+	 */
+	public int getCapacity() {
+		return capacity;
+	}
+	/**
+	 * creates a default venue
+	 * 
+	 *  a default venue has the name "unknown" (without quotes) and capacity 0.
+	 *  
+	 */
+	public Venue(){
+		
+	}
 
-    //getter capacity
-    public int getCapacity() {
-        return capacity;
-    }
+	/**
+	 * set the capacity of this venue
+	 * 
+	 * the capacity must be a non-negative number. all other values are ignored,
+	 * the object remains unchanged.
+	 * 
+	 * @param capacity
+	 *            to set
+	 * 
+	 */
+	public void setCapacity(int capacity) {
+		if (capacity < 0)
+			return;
+		this.capacity = capacity;
+	}
 
-    ///setter capacity
-    public void setCapacity(int capacity) {
-    if(capacity >= 0) {
-        this.capacity = capacity;
-    }
-    }
+	/**
+	 * get the name of this venue
+	 * 
+	 * @return the name
+	 */
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	/**
+	 * set the name of this venue
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	/**************** ES 03 ***********************/
+
+	
+	/**
+	 * creates a copy of a venue
+	 * @param v the original venue to copied
+	 * @ProgrammingProblem.Aspect copy constructor 
+     * @ProgrammingProblem.Introduced ExerciseSheet03
+	 */
+	public Venue(Venue v){
+		if (v==null)return;
+		this.name = v.name;
+		this.capacity = v.capacity;
+	}
+	
+
 }
