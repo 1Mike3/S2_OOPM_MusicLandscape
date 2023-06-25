@@ -19,6 +19,10 @@ public class Event {
                 }
 
                 public Event(Event E){
+                    if(E == null){
+                        return;
+                    }
+
                     this.artist = new Artist(E.artist);
                     this.attendees = Integer.valueOf(E.attendees);
                     this.date = new Date(E.date);

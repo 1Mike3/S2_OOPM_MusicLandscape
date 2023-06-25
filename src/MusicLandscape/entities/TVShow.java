@@ -8,20 +8,21 @@ public class TVShow extends Event{
                 //Constructors
                 public TVShow(){
                     super();
-                    this.name = "";
+                    this.name = null;
                     this.viewers = 0;
                 }
 
                 public TVShow(Event e){
                     super(e);
-                    this.name = "";
+                    this.name = null;
                     this.viewers = 0;
                 }
 
                 public TVShow(TVShow tvs){
+
                     super(tvs);
-                    this.name = tvs.name;
-                    this.viewers = tvs.viewers;
+                    this.name = String.valueOf(tvs.name);
+                    this.viewers = new Integer(tvs.viewers);
                 }
 
     public void setViewers(int v){
@@ -35,8 +36,8 @@ public class TVShow extends Event{
         return name;
     }
 
-    public String getViewers(){
-        return String.valueOf(viewers);
+    public int getViewers(){
+        return viewers;
     }
 
     public void setName(String name) {
@@ -63,8 +64,8 @@ public class TVShow extends Event{
 
             s += " @ ";
 
-            if (super.getVenue() != null){
-                s += super.getVenue().getName();
+            if (name != null){
+                s += name;
             }else {
                 s += "unknown";
             }
@@ -83,7 +84,7 @@ public class TVShow extends Event{
                 s += super.getDescription();
             }
 
-            s += "\n(" + (super.getAttendees()+viewers) + " attending(" + impact() + "))";
+            s += "\n(" + (super.getAttendees()+viewers) + " attending (" + impact() + "))";
 
 
             return s;
