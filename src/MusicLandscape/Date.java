@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  * 
- * @author TeM
+ * @author RichardVonHeise, der Dritte
  * @author JS
  * @version 234
  * @Stage ES03
@@ -31,9 +31,9 @@ public class Date implements  Comparable<Date>
 	 */
 	public Date(Date date) {
 		if(date==null)return;
-		y = date.y;
-		m = date.m;
-		d = date.d;
+		this.y = date.y;
+		this.m = date.m;
+		this.d = date.d;
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class Date implements  Comparable<Date>
 	 * 
 	 */
 	public Date() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -78,12 +78,13 @@ public class Date implements  Comparable<Date>
 
 	/**
 	 * Calculates the day of the week this date.<br>
-	 * 
+	 *
 	 * 0...SUN
 	 * 6...SAT
-	 * 
+	 *
 	 * @return the weekday of this date
 	 */
+
 	public int weekday() {
 		int yy = y, cc, dd = d, mm = m;
 

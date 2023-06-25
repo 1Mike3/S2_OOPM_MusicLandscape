@@ -42,6 +42,17 @@ public class Artist {
 
     }
 
+@Override
+    public String toString() {
+    if (name == null) {
+        return "unknown";
+    } else {
+        return name;
+    }
+
+
+
+                }
 
 
 }

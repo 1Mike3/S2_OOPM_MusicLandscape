@@ -18,6 +18,14 @@ public class Event {
                     this.description = "";
                 }
 
+                public Event(Event E){
+                    this.artist = E.artist;
+                    this.attendees = E.attendees;
+                    this.date = E.date;
+                    this.description = E.description;
+                    this.venue = E.venue;
+                }
+
     //getters and setters
 
 
@@ -77,6 +85,50 @@ public class Event {
         this.venue = venue;
     }
 
+
+    public  int impact(){
+        int impact = 0;
+        if (attendees > 0){
+            impact = attendees * 2;
+        }
+        return impact;
+    }
+
+    public String toString(){
+                    String s = "";
+                    if (artist != null){
+                        s += artist.getName();
+                    }else {
+                        s += "unknown";
+                    }
+
+                    s += " @ ";
+
+                    if (venue != null){
+                        s += venue.getName();
+                    }else {
+                        s += "unknown";
+                    }
+
+                    s += " on ";
+
+                    if (date != null){
+                        s += date.toString();
+                    }else {
+                        s += "unknown";
+                    }
+
+                    s += "\n";
+
+                    if (description != null) {
+                        s += description;
+                    }
+
+                    s += "\n(" + attendees + " attending(" + impact() + "))";
+
+
+                    return s;
+    }
 
 
 }
