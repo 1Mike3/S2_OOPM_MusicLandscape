@@ -34,7 +34,7 @@ public class Concert extends Event{
 public Track[] getSetList(){
         Track[] newList = new Track[nextIdx];
         for(int i = 0; i < nextIdx; i++){
-            newList[i] = setList[i];
+            newList[i] = new Track(setList[i]); //setList[i];
         }
         return newList;
 }
@@ -42,8 +42,15 @@ public Track[] getSetList(){
 public void setSetList(Track[] tracks) {
     if (tracks != null) {
         ensureCapacity(tracks.length);
-        for (int i = 0; i < tracks.length; i++) {
-            setList[i] = tracks[i];
+        int i = 0;
+        for (int k = 0; k < tracks.length; k++, i++) {
+
+
+                if(tracks[k] != null) {
+                    setList[i] = new Track(tracks[k]);
+                }else {
+                    i--;
+                }
         }
         nextIdx = tracks.length;
     }
@@ -80,9 +87,9 @@ public void setSetList(Track[] tracks) {
     @Override
 public String toString() {
         String s = super.toString();
-       String noOfTracks = " " + nextIdx + " ";
-        String duration = String.format("%02d:%02d", duration() / (60 * 60), duration() % (60 * 60));
-        return s + noOfTracks + duration;
+       String noOfTracks = String.valueOf(nextIdx);
+        String duration = String.format("%02d:%02d", duration() / (60 * 60), duration() / 300 );
+        return s +"\n"+ noOfTracks +" tracks played, total duration " + duration + ".";
 
     }
 

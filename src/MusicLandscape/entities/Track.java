@@ -113,58 +113,77 @@ this();
         return false;
     }
 
-    public String getString(){
-        String localTitle;
-        String localWriter;
-        String localPerformer;
-        int minutes;
-        int seconds;
-
-if (writer != null && writer.getName() != null ){
-     localWriter = writer.getName();
-}else{
-     localWriter = "unknown";
-}
-
-        if(!localWriter.equals("unknown")){
-            //limit the lockalWriter to 10 characters
-            localWriter = this.writer.getName();
-            if(localWriter.length() > 10){
-                localWriter = localWriter.substring(0,10);
-            }
-
-        }
-
-
-            localTitle = this.title;
-
-if(localTitle != null && localTitle.length() >10){
-    localTitle = localTitle.substring(0,10);
-}else{
-    localTitle = "unknown";
-}
-
-//limit the localPerformer to 10 characters
-if(performer != null && performer.getName() != null){
-    localPerformer = performer.getName();
-}else{
-    localPerformer = "unknown";
-}
-        if(localPerformer.length() > 10){
-            localPerformer = localPerformer.substring(0,10);
-        }
 
 
 
-        seconds = (duration)%100;
-
-        minutes = duration /60 ;
 
 
-        return String.format("%10s by %10s performed by %10s (%02d:%02d)",localTitle, localWriter,localPerformer,minutes,seconds);
+                                                    public String getString(){
+                                                        String localTitle;
+                                                        String localWriter;
+                                                        String localPerformer;
+                                                        int minutes;
+                                                        int seconds;
+
+                                                if (writer != null && writer.getName() != null ){
+                                                     localWriter = String.format("%10s",writer.getName()) ;
+                                                }else{
+                                                     localWriter = "unknown";
+                                                }
+                                                //account for a length larger than 10
+                                                if(localWriter.length() > 10){
+                                                    localWriter = localWriter.substring(0,10);
+                                                }
+
+                                                /*
+                                                        if(!localWriter.equals("unknown")){
+                                                            //limit the lockalWriter to 10 characters
+                                                            localWriter = this.writer.getName();
+                                                            if(localWriter.length() > 10){
+                                                                localWriter = localWriter.substring(0,10);
+                                                            }
+
+                                                        }
+                                                */
+
+                                                            localTitle = this.title;
+                                                if(localTitle != null ){
+                                                    localTitle = String.format("%10s",title);
+                                                }else{
+                                                    localTitle = "unknown";
+                                                }
+                                                //account for a length larger than 10
+                                                if(localTitle.length() > 10){
+                                                    localTitle = localTitle.substring(0,10);
+                                                }
+
+                                                //limit the localPerformer to 10 characters
+                                                if(performer != null && performer.getName() != null){
+                                                    localPerformer = String.format("%10s",performer.getName());;
+                                                }else{
+                                                    localPerformer = "unknown";
+                                                }
+                                                        if(localPerformer.length() > 10){
+                                                            localPerformer = localPerformer.substring(0,10);
+                                                        }
+
+
+
+                                                        seconds = (duration)%60;
+
+                                                        minutes = duration /60 ;
+
+
+                                                        return String.format("%10s by %10s performed by %10s (%02d:%02d)",localTitle, localWriter,localPerformer,minutes,seconds);
+                                                    }
+
+
+
+
+
+@Override
+    public String toString(){
+        return getString();
     }
-
-
-
 
 }

@@ -259,6 +259,7 @@ public class ConcertTest {
   }
   @Test
   public void setSetListWithNull() {
+
 	  baseList[3]=null;
 	  baseList[4]=null;
 	  toTest.setSetList(baseList);
