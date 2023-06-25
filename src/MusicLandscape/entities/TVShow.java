@@ -35,6 +35,10 @@ public class TVShow extends Event{
         return name;
     }
 
+    public String getViewers(){
+        return String.valueOf(viewers);
+    }
+
     public void setName(String name) {
         if (name != null && !name.trim().equals("")) {
             this.name = name;

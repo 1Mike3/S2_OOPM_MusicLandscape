@@ -54,6 +54,10 @@ public void setSetList(Track[] tracks) {
         nextIdx = 0;
     }
 
+    public int nrTracks(){
+        return nextIdx;
+    }
+
     public int duration(){
         int duration = 0;
         for(int i = 0; i < nextIdx; i++){
