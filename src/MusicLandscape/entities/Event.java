@@ -19,11 +19,11 @@ public class Event {
                 }
 
                 public Event(Event E){
-                    this.artist = E.artist;
-                    this.attendees = E.attendees;
-                    this.date = E.date;
-                    this.description = E.description;
-                    this.venue = E.venue;
+                    this.artist = new Artist(E.artist);
+                    this.attendees = Integer.valueOf(E.attendees);
+                    this.date = new Date(E.date);
+                    this.description = new String(E.description);
+                    this.venue = new Venue(E.venue);
                 }
 
     //getters and setters
@@ -115,7 +115,7 @@ public class Event {
                     if (date != null){
                         s += date.toString();
                     }else {
-                        s += "unknown";
+                        s += "null";
                     }
 
                     s += "\n";
@@ -124,7 +124,9 @@ public class Event {
                         s += description;
                     }
 
-                    s += "\n(" + attendees + " attending(" + impact() + "))";
+
+
+                    s += "\n(" + attendees + " attending (" + impact() + "))";
 
 
                     return s;
